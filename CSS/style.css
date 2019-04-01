@@ -1,0 +1,119 @@
+	body{
+		height: 100vh;
+		width: 100%;
+		padding: 0px;
+		margin: 0;}
+		
+	@font-face{
+		font-family: Title;
+		src: url(Nunito-Bold.ttf);
+	}
+	
+	#Navigation{
+		width: 100%;
+		display: flex;
+		background-color: #333333;
+	}
+	
+	.NavLink{
+		padding: 15px;
+		margin-right: 10px;
+		float: left;
+		cursor: pointer;
+	}
+	
+	.NavLink:hover{
+		background-color: #555555;
+	}
+	
+	.NavLink a{
+		text-decoration: none;
+		font-family: Title;
+		color: white;
+		font-size: 1.5em;
+	}
+	#NavHome{
+		padding-right: 25px;
+		padding-left: 35px;
+	}
+	#NavHome a{
+		color: #66DD66;
+	}
+	
+	#Window{
+		width: 100%;
+		padding: 20px;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.Centered{
+		height: 100px;
+		margin: auto;
+		margin-bottom: 20px;
+		font-family: Title;
+		font-size: 1.7em;
+	}
+	.Full{
+		width: 500px;
+	}
+	.BigPar{
+		font-size: 2.2em;
+		text-align: center;
+		height: auto;
+	}
+	.NamePar{
+		color: #44BB44;
+	}
+	button{
+		border: none;
+		background-color: #99DD99;
+		color: black;
+	}
+	input{
+		padding-left: 10px;
+	}
+		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+			color: #AAAAAA;
+		}
+
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: #AAAAAA;
+		}
+
+		::-ms-input-placeholder { /* Microsoft Edge */
+			color: #AAAAAA;
+		}
+	
+	#TableWrapper{
+		margin-top: 55px;
+	}
+	
+	table {
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	table td, table th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+
+	table tr:nth-child(even){background-color: #f2f2f2;}
+
+	table tr:hover {background-color: #ddd;}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src = "Javascript/utils.js"></script>
+	<script src = "Javascript/scripts.js"></script>
+	<script src = "Javascript/Queue.src.js"></script>
+	<script src = "Javascript/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<nav>
+	<div id = "Navigation">
+		<div class = "NavLink"  onclick="window.location.href = 'index.html'" id = "NavHome">
+			<a href = "index.html">Who Am I?</a>
+		</div>
+		<div class = "NavLink" onclick="window.location.href = 'https://github.com/whoamigame/whoamigame.github.io'">
+			<a href = "https://github.com/whoamigame/whoamigame.github.io">Source Code</a>
+		</div>
+		<div class = "NavLink" disabled>
+			<a href = "index.html">How To Play</a>
+		</div>
+	</div>
+</nav>
+<div id = "Window">
+	<div id = "TableWrapper">
+		<table id = "PlayersTable" class = "Centered Full">
+			<tr>
+				<td>You : </td>
+				<td> ? </td>
+			</tr>
+		</table>
+	</div>
+	<button id="EndGameButton" class = "Centered Full" onclick = "endGame()">End Game</button>
+</div>
+</body>
+<script>
+
+MyName = getURLParameters().name
+
+function addTableEntry(name, role){
+	let tr = createElement("tr")
+	let td1 = createElement("td")
+	let td2 = createElement("td")
+	td1.innerHTML = name + " : "
+	td2.innerHTML = role
+	tr.appendChild(td1)
+	tr.appendChild(td2)
+	get("PlayersTable").appendChild(tr)
+}
+
+requestPlayers((players)=>{
+	if(players == null || players == false) return;
+	for(let i = 0; i<players.length; i++){
+		if(players[i].name != MyName){
+			addTableEntry(players[i].name, players[i].role)
+		}
+	}
+})
+
+function endGame(){
+	requestGameEnded((gameEnded)=>{
+		if(gameEnded){
+			let newButton = createElementWithClass("button", "Centered Full")
+			newButton.innerHTML = 'New Game'
+			newButton.onclick = function(){
+				window.location.href = 'index.html'
+			}
+			get("Window").appendChild(newButton)
+			get("EndGameButton").enabled = false;
+			get("EndGameButton").innerHTML = "The game has already ended :)";
+		} else {
+			doPost(website + "/game/reset", null, (res)=>{
+				if(res == true){
+					window.location.href = "index.html"
+				}
+			})
+		}
+	})
+}
+
+
+//
+//PlayerNames = []
+//
+//function addPlayer(name){
+//	if(PlayerNames.includes(name)) return;
+//	else{
+//		PlayerNames.push(name)
+//		let playerPar = createElementWithClass("p", "Centered Full BigPar NamePar")
+//		playerPar.innerHTML = PlayerNames.length + ". " + name
+//		get("Window").appendChild(playerPar)
+//	}
+//}
+//
+//function requestPlayers(){
+//	console.log("Requesting players")
+//	doGet(website + '/info', null, (response)=>{
+//		console.log(response)
+//		if(!response) return;
+//		console.log(response)
+//		for(let i = 0; i<response.length; i++){
+//			if(!PlayerNames.includes(response[i].name)){
+//				addPlayer(response[i].name)
+//			}
+//		}
+//	})
+//}
+
+
+
+
+</script>
+</html>
