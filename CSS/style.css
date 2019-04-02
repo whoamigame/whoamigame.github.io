@@ -74,6 +74,9 @@
 	}
 	input{
 		padding-left: 10px;
+		line-height: 2.2em;
+		border: solid 2px #AAAAAA;
+		border-radius: 4px;
 	}
 		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 			color: #AAAAAA;
