@@ -74,20 +74,20 @@
 	}
 	input{
 		padding-left: 10px;
-		line-height: 2.2em;
+		line-height: 5em;
 		border: solid 2px #AAAAAA;
 		border-radius: 4px;
 	}
 		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-			color: #bbffbb;
+			color: #77AA77;
 		}
 
 		:-ms-input-placeholder { /* Internet Explorer 10-11 */
-			color: #bbffbb;
+			color: #77AA77;
 		}
 
 		::-ms-input-placeholder { /* Microsoft Edge */
-			color: #bbffbb;
+			color: #77AA77;
 		}
 	
 	#TableWrapper{
